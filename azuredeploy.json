@@ -28,13 +28,13 @@
     },
     "windowsOSVersion": {
       "type": "string",
-      "defaultValue": "2012-R2-Datacenter",
+      "defaultValue": "2012-Datacenter",
       "allowedValues": [
         "2012-R2-Datacenter",
         "2012-Datacenter"
       ],
       "metadata": {
-        "description": "Windows Server OS.  The default is 2012R2, but 2012 is available.  The IPP Manager has not been tested on 2016"
+        "description": "Windows Server OS.  The default is 2012, but 2012R2 is available."
       }
     },
   "Size": {
@@ -111,12 +111,12 @@
       "properties": {
         "securityRules": [
           {
-            "name": "22",
+            "name": "80",
             "properties": {
-              "description": "Port 22",
+              "description": "Port 80",
               "protocol": "Tcp",
               "sourcePortRange": "*",
-              "destinationPortRange": "22",
+              "destinationPortRange": "80",
               "sourceAddressPrefix": "[parameters('ExternalIPofDevices')]",
               "destinationAddressPrefix": "[variables('staticPrivateIP')]",
               "access": "Allow",
@@ -125,72 +125,16 @@
             }
           },
           {
-            "name": "8443",
+            "name": "443",
             "properties": {
-              "description": "Port 8443",
+              "description": "Port 443",
               "protocol": "Tcp",
               "sourcePortRange": "*",
-              "destinationPortRange": "8443",
+              "destinationPortRange": "443",
               "sourceAddressPrefix": "[parameters('ExternalIPofDevices')]",
               "destinationAddressPrefix": "[variables('staticPrivateIP')]",
               "access": "Allow",
               "priority": 101,
-              "direction": "Inbound"
-            }
-          },
-          {
-            "name": "8080",
-            "properties": {
-              "description": "Port 8080",
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "8080",
-              "sourceAddressPrefix": "[parameters('ExternalIPofDevices')]",
-              "destinationAddressPrefix": "[variables('staticPrivateIP')]",
-              "access": "Allow",
-              "priority": 102,
-              "direction": "Inbound"
-            }
-          },
-          {
-            "name": "8088",
-            "properties": {
-              "description": "Port 8088",
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "8088",
-              "sourceAddressPrefix": "[parameters('ExternalIPofDevices')]",
-              "destinationAddressPrefix": "[variables('staticPrivateIP')]",
-              "access": "Allow",
-              "priority": 103,
-              "direction": "Inbound"
-            }
-          },
-          {
-            "name": "8843",
-            "properties": {
-              "description": "Port 8843",
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "8843",
-              "sourceAddressPrefix": "[parameters('ExternalIPofDevices')]",
-              "destinationAddressPrefix": "[variables('staticPrivateIP')]",
-              "access": "Allow",
-              "priority": 104,
-              "direction": "Inbound"
-            }
-          },
-          {
-            "name": "3478",
-            "properties": {
-              "description": "Port 3478",
-              "protocol": "Udp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "3478",
-              "sourceAddressPrefix": "[parameters('ExternalIPofDevices')]",
-              "destinationAddressPrefix": "[variables('staticPrivateIP')]",
-              "access": "Allow",
-              "priority": 105,
               "direction": "Inbound"
             }
           }
